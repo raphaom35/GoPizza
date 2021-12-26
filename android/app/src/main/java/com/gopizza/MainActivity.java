@@ -6,7 +6,7 @@ import android.os.Bundle;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
-
+import com.facebook.react.bridge.JSIModulePackage; // <- add  import com.swmansion.reanimated.ReanimatedJSIModulePackage;
 import expo.modules.ReactActivityDelegateWrapper;
 
 public class MainActivity extends ReactActivity {
@@ -34,7 +34,7 @@ public class MainActivity extends ReactActivity {
       new ReactActivityDelegate(this, getMainComponentName())
     );
   }
-
+  @Override      protected JSIModulePackage getJSIModulePackage() {        return new ReanimatedJSIModulePackage();} // <- add      }
   /**
    * Align the back button behavior with Android S
    * where moving root activities to background instead of finishing activities.
