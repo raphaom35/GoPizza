@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import {useFonts,DMSans_400Regular  } from '@expo-google-fonts/dm-sans';
 import { DMSerifDisplay_400Regular } from '@expo-google-fonts/dm-serif-display';
 import AppLoading from 'expo-app-loading';
-
+import {AuthProvider} from '././src/hooks/auth';
 import theme from './src/theme';
 import { SignIn } from './src/screens/SignIn';
 import { View,Text } from 'react-native';
@@ -21,7 +21,9 @@ export default function App() {
 
     <ThemeProvider theme={theme} >
       <StatusBar style="light" translucent backgroundColor="transparent" />
+      <AuthProvider>
       <SignIn/>
+      </AuthProvider>
     </ThemeProvider>
   );
 }
